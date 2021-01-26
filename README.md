@@ -41,4 +41,28 @@ The gif below outlines the changes in contract interaction once the sale has bee
 
 ![Finalizing Sale](Screenshots/sale_closed.gif)
 
+### Adding Tokens to MyCrypto & MetaMask 
 
+Following contract interactions on my local machine, everything was then deployed to the Ropsten test network.  Once this was done the token created from the contract was added to MetaMask and MyCrypto.  Examples of both can be found below. 
+
+Adding the token to MetaMask is as simple as opening your MetaMask extension, clicking on "Add Token", selecting "Custom Token", and entering the token address.  The token address to enter can be found in Remix - the PupperCoinSaleDeployer contract allows you to view the token address.  
+
+![MetaMask Token](Screenshots/metamask_token.PNG)
+
+Adding the token to MyCrypto is similarly as easy.  Once in your MyCrypto account, click on "Add Custom Token" under the "Token Balances" section, enter the address of your token, and click "Save".  Once the token is added you will see it populate on your MyCrypto, as shown below. 
+
+![MyCrypto Token(Screenshots/mycrypto_add_token1.PNG)
+
+![MyCrypto Token(Screenshots/mycrypto_add_token2.PNG)
+
+![MyCrypto Token(Screenshots/mycrypto_token.PNG)
+
+Finally, the below screen shots outline an actual transaction on the Ropsten test network.  Due to limited ETH available on the test network, a transaction of 10 wei was made.  This is reflected in the transaction screen shots below, but also means the token value will continue to show 0 due to such a small amount of wei being transacted.  
+
+The screenshot below shows transaction hash details from MyCrypto. 
+
+![MyCrypto Transaction(Screenshots/mycrypto_transaction.PNG)
+
+The screenshot below shows the transaction on Etherscan, which reflects the value of 10 wei transacted.  
+
+![Etherscan Transaction(Screenshots/etherscan_transaction.PNG)
