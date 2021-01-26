@@ -23,4 +23,6 @@ Within the constructor of this contract the token_address and token_sale_address
   
 Finally, the PupperCoinSale contract is added as the minter and the PupperCoinSaleDeployer contract has its minting abilities renounced.  
 
+### Interacting with the Contract
 
+The contract was tested on my local network, and later deployed to the Ropsten test network.  The examples below show the contract operating on my local network.  In an effort to test all functionality, a cap and goal of 300 was set and the end time of the sale was 2 minutes after launching. 
