@@ -51,18 +51,18 @@ Adding the token to MetaMask is as simple as opening your MetaMask extension, cl
 
 Adding the token to MyCrypto is similarly as easy.  Once in your MyCrypto account, click on "Add Custom Token" under the "Token Balances" section, enter the address of your token, and click "Save".  Once the token is added you will see it populate on your MyCrypto, as shown below. 
 
-![MyCrypto Token(Screenshots/mycrypto_add_token1.PNG)
+![MyCrypto Token](Screenshots/mycrypto_add_token1.PNG)
 
-![MyCrypto Token(Screenshots/mycrypto_add_token2.PNG)
+![MyCrypto Token](Screenshots/mycrypto_add_token2.PNG)
 
-![MyCrypto Token(Screenshots/mycrypto_token.PNG)
+![MyCrypto Token](Screenshots/mycrypto_token.PNG)
 
 Finally, the below screen shots outline an actual transaction on the Ropsten test network.  Due to limited ETH available on the test network, a transaction of 10 wei was made.  This is reflected in the transaction screen shots below, but also means the token value will continue to show 0 due to such a small amount of wei being transacted.  
 
 The screenshot below shows transaction hash details from MyCrypto. 
 
-![MyCrypto Transaction(Screenshots/mycrypto_transaction.PNG)
+![MyCrypto Transaction](Screenshots/mycrypto_transaction.PNG)
 
 The screenshot below shows the transaction on Etherscan, which reflects the value of 10 wei transacted.  
 
-![Etherscan Transaction(Screenshots/etherscan_transaction.PNG)
+![Etherscan Transaction](Screenshots/etherscan_transaction.PNG)
