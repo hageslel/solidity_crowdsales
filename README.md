@@ -23,10 +23,22 @@ Within the constructor of this contract the token_address and token_sale_address
   
 Finally, the PupperCoinSale contract is added as the minter and the PupperCoinSaleDeployer contract has its minting abilities renounced.  
 
-### Interacting with the Contract
+### Interacting with the Contracts
 
 The contract was tested on my local network, and later deployed to the Ropsten test network.  The examples below show the contract operating on my local network.  In an effort to test all functionality, a cap and goal of 300 was set and the end time of the sale was 2 minutes after launching. 
 
 The gif below outlines the deployment of the PupperCoinSaleDeployer contract.  As can be viewed in the gif, once the contract is deployed it can be interacted with to view the token address and token sale address.  As mentioned previously, this is due to the inheritance of the PupperCoin and PupperCoinSale contracts.  
 
 ![PupperCoin Deployed](Screenshots/puppercoin_deployer.gif)
+
+The gif below outlines how to participate in the crowdsale by purchasing tokens.  As can be viewed in the gif, the amount of tokens to be purchased can first be entered in the "Value" box.  From there an address needs to be entered within the contract interaction, which is the address that will be acquiring the tokens.  NOTE: This address needs to be different than the address that was used to deploy the contract.  The address that deployed the contract will be collecting all Ether at the end of the sale.  
+
+As can also be viewed from the gif, the contract can be interacted with once the tokens are purchased.  You can view the crowdsale goal, cap, if the goal has been reached, if the sale is still open, if the sale is finalized, etc. by clicking on the corresponding buttons.  Once the sale is finalized and closed the responses provided by these interatction will change accordingly.  This will be demonstrated next.  
+
+![Buying Tokens](Screenshots/buy_tokens.gif)
+
+The gif below outlines the changes in contract interaction once the sale has been finalized and closed.  As mentioned previously, the end time of this contract was set for 2 minutes after deployment.  This was done for testing and example purposes.  As can be seen below, the crowdsale was first finalized.  This was done after the required 2 minutes had passed.  Once finalized, the "finalized" interaction then evaluates to true, the "isOpen" interaction now evaluates to false, and the "hasClosed" interaction now evaluates to true.  It can also be viewed that the goal and cap of 300 (ETH) has been met.  
+
+![Finalizing Sale](Screenshots/sale_closed.gif)
+
+
