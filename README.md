@@ -14,4 +14,13 @@ The PupperCoinSale contract can be found in the Crowdsale.sol file.  This contra
 
 The PupperCoinSaleDeployer contract can also be found in Crowdsale.sol file.  This contract was built to bring all contracts together and actually deploy the crowdsale.  Once deployed, this contract will provide the address of the token generated from the PupperCoin contract, as well as the token sale address generated from the PupperCoinSale contract.  Within the constructor variables are passed to define the token and sale.  The name of the token will be provided here ("PupperCoin"), the symbol will be provided ("PUP"), and the wallet address that will be collecting all Ether raised from the sale.  A demonstration of how this works is provided "Interacting with the Contract" section below.  
 
-The final components of this 
+Within the constructor of this contract the token_address and token_sale_address variables are defined.  The token_address variable references the PupperCoin contract and generates an address to this token.  The token_sale_address variable references the PupperCoinSale contract and generates an address to the sale.  When defining the sale the following paremters are set: 
+  - Rate of 1, which means 1 token = 1 ETH 
+  - Cap of 300 (ETH)
+  - Start time of now.
+  - End time of now + 24 weeks
+  - Goal of 300 (ETH), which matches the cap defined. 
+  
+Finally, the PupperCoinSale contract is added as the minter and the PupperCoinSaleDeployer contract has its minting abilities renounced.  
+
+
