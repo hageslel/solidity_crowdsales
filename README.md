@@ -26,3 +26,7 @@ Finally, the PupperCoinSale contract is added as the minter and the PupperCoinSa
 ### Interacting with the Contract
 
 The contract was tested on my local network, and later deployed to the Ropsten test network.  The examples below show the contract operating on my local network.  In an effort to test all functionality, a cap and goal of 300 was set and the end time of the sale was 2 minutes after launching. 
+
+The gif below outlines the deployment of the PupperCoinSaleDeployer contract.  As can be viewed in the gif, once the contract is deployed it can be interacted with to view the token address and token sale address.  As mentioned previously, this is due to the inheritance of the PupperCoin and PupperCoinSale contracts.  
+
+![PupperCoin Deployed](Screenshots/puppercoin_deployer.gif)
