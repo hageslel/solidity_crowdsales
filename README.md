@@ -8,42 +8,42 @@ The PupperCoin contract can be found in the PupperCoin.sol file.  This contract 
 
 ### PupperCoinSale Contract 
 
-The PupperCoinSale contract can be found in the Crowdsale.sol file.  This contract inherits the Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCrowdsale, and RefundablePostDeliveryCrowdsale contracts that were imported from Github at the top of the file. All variables defined in the constructor align with varialbes required to be passed into each inherited crowdsale contract's constructor.  No variables were hardcoded in this contract, allowing for contract reuse and flexibility.  
+The PupperCoinSale contract can be found in the Crowdsale.sol file.  This contract inherits the Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCrowdsale, and RefundablePostDeliveryCrowdsale contracts that were imported from Github at the top of the file. All variables defined in the constructor align with variables required to be passed into each inherited crowdsale contract's constructor.  No variables were hardcoded in this contract, allowing for contract reuse and flexibility.  
 
 ### PupperCoinSaleDeployer Contract
 
-The PupperCoinSaleDeployer contract can also be found in Crowdsale.sol file.  This contract was built to bring all contracts together and actually deploy the crowdsale.  Once deployed, this contract will provide the address of the token generated from the PupperCoin contract, as well as the token sale address generated from the PupperCoinSale contract.  Within the constructor variables are passed to define the token and sale.  The name of the token will be provided here ("PupperCoin"), the symbol will be provided ("PUP"), and the wallet address that will be collecting all Ether raised from the sale.  A demonstration of how this works is provided "Interacting with the Contract" section below.  
+The PupperCoinSaleDeployer contract can also be found in Crowdsale.sol file.  This contract was built to bring all contracts together and deploy the crowdsale.  Once deployed, this contract will provide the address of the token generated from the PupperCoin contract, as well as the token sale address generated from the PupperCoinSale contract.  Within the constructor, the variables of name, symbol, and wallet are passed in.  The name of the token will be provided here ("PupperCoin"), the symbol will be provided ("PUP"), and the wallet address that will be collecting all Ether raised from the sale.  A demonstration of how this works is provided in the "Interacting with the Contract" section below.  
 
-Within the constructor of this contract the token_address and token_sale_address variables are defined.  The token_address variable references the PupperCoin contract and generates an address to this token.  The token_sale_address variable references the PupperCoinSale contract and generates an address to the sale.  When defining the sale the following paremters are set: 
+In the body of the constructor the token_address and token_sale_address variables are defined.  The token_address variable references the PupperCoin contract and generates an address to this token.  The token_sale_address variable references the PupperCoinSale contract and generates an address to the sale.  When defining the sale, the following parameters are set: 
   - Rate of 1, which means 1 token = 1 ETH 
   - Cap of 300 (ETH)
   - Start time of now.
-  - End time of now + 24 weeks
+  - End time of 24 weeks from now (now + 24 weeks)
   - Goal of 300 (ETH), which matches the cap defined. 
   
 Finally, the PupperCoinSale contract is added as the minter and the PupperCoinSaleDeployer contract has its minting abilities renounced.  
 
 ### Interacting with the Contracts
 
-The contract was tested on my local network, and later deployed to the Ropsten test network.  The examples below show the contract operating on my local network.  In an effort to test all functionality, a cap and goal of 300 was set and the end time of the sale was 2 minutes after launching. 
+The contract was tested on my local network, and later deployed to the Ropsten test network.  The examples below show the contract operating on my local network.  To test all functionality, a cap and goal of 300 (ETH) was set and the end time of the sale was 2 minutes after launching. 
 
 The gif below outlines the deployment of the PupperCoinSaleDeployer contract.  As can be viewed in the gif, once the contract is deployed it can be interacted with to view the token address and token sale address.  As mentioned previously, this is due to the inheritance of the PupperCoin and PupperCoinSale contracts.  
 
 ![PupperCoin Deployed](Screenshots/puppercoin_deployer.gif)
 
-The gif below outlines how to participate in the crowdsale by purchasing tokens.  As can be viewed in the gif, the amount of tokens to be purchased can first be entered in the "Value" box.  From there an address needs to be entered within the contract interaction, which is the address that will be acquiring the tokens.  NOTE: This address needs to be different than the address that was used to deploy the contract.  The address that deployed the contract will be collecting all Ether at the end of the sale.  
+The gif below outlines how to participate in the crowdsale by purchasing tokens.  As can be viewed in the gif, the number of tokens to be purchased can first be entered in the "Value" box.  From there an address needs to be entered within the contract interaction ("buyTokens" box), which is the address that will be acquiring the tokens.  NOTE: This address needs to be different than the address that was used to deploy the contract.  The address that deployed the contract will be collecting all Ether at the end of the sale. 
 
-As can also be viewed from the gif, the contract can be interacted with once the tokens are purchased.  You can view the crowdsale goal, cap, if the goal has been reached, if the sale is still open, if the sale is finalized, etc. by clicking on the corresponding buttons.  Once the sale is finalized and closed the responses provided by these interatction will change accordingly.  This will be demonstrated next.  
+As can also be viewed from the gif, the contract can be interacted with once the tokens are purchased.  You can view the crowdsale goal, cap, if the goal has been reached, if the sale is still open, if the sale is finalized, etc. by clicking on the corresponding buttons.  Once the sale is finalized and closed the responses provided by these interactions will change accordingly.  This will be demonstrated next.  
 
 ![Buying Tokens](Screenshots/buy_tokens.gif)
 
-The gif below outlines the changes in contract interaction once the sale has been finalized and closed.  As mentioned previously, the end time of this contract was set for 2 minutes after deployment.  This was done for testing and example purposes.  As can be seen below, the crowdsale was first finalized.  This was done after the required 2 minutes had passed.  Once finalized, the "finalized" interaction then evaluates to true, the "isOpen" interaction now evaluates to false, and the "hasClosed" interaction now evaluates to true.  It can also be viewed that the goal and cap of 300 (ETH) has been met.  
+The gif below outlines the changes in contract interactions once the sale has been finalized and closed.  As mentioned previously, the end time of this contract was set for 2 minutes after deployment.  This was done for testing and example purposes.  As can be seen below, the crowdsale was first finalized.  This was done after the required 2 minutes had passed.  Once finalized, the "finalized" interaction then evaluates to true, the "isOpen" interaction evaluates to false, and the "hasClosed" interaction evaluates to true.  It can also be viewed that the goal and cap of 300 (ETH) has been met.  
 
 ![Finalizing Sale](Screenshots/sale_closed.gif)
 
 ### Adding Tokens to MyCrypto & MetaMask 
 
-Following contract interactions on my local machine, everything was then deployed to the Ropsten test network.  Once this was done the token created from the contract was added to MetaMask and MyCrypto.  Examples of both can be found below. 
+Following contract interactions on my local machine, all contracts were then deployed to the Ropsten test network.  Once this was done the token created from the contract was added to MetaMask and MyCrypto.  Examples of both can be found below. 
 
 Adding the token to MetaMask is as simple as opening your MetaMask extension, clicking on "Add Token", selecting "Custom Token", and entering the token address.  The token address to enter can be found in Remix - the PupperCoinSaleDeployer contract allows you to view the token address.  
 
